@@ -1,29 +1,22 @@
 <?php
+include 'db.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-    
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-    
-    $conn = new mysqli("localhost", "root", "", "UserAuth");
-
-   
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    
-    $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $username, $email, $hashedPassword);
+    $stmt->bind_param("ss", $username, $password);
 
     if ($stmt->execute()) {
-        echo "Sign-up successful! You can now log in.";
+        echo "Sign-up successful!";
     } else {
-        echo "Error: " . $conn->error;
+        if ($conn->errno === 1062) {
+            echo "  Username already exists.";
+        } else {
+            echo "Error: " . $conn->error;
+        }
     }
 
     $stmt->close();
