@@ -13,8 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Sign-up successful!";
     } else {
         if ($conn->errno === 1062) {
+            echo "<br>";
             echo "  Username already exists.";
         } else {
+            echo "<br>";
             echo "Error: " . $conn->error;
         }
     }

@@ -14,11 +14,12 @@
         }
         .form-container {
             max-width: 400px;
-            margin: 50px auto;
+            margin: 20px;
             padding: 20px;
             border: 2px solid #ccc;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
         }
         .form-container h2 {
             text-align: center;
@@ -38,6 +39,20 @@
         .btn:hover {
             background-color: #0056b3;
         }
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .form-container {
+            flex: 1 1 300px;
+        }
+        @media (max-width: 1000px) {
+            .form-row {
+                flex-direction: column;
+                align-items: center;
+            }
+        } /* Metoda e responsive*/
     </style>
 </head>
 <body>
@@ -79,44 +94,47 @@
                     </div>
                 </div>
             </div>
+        </div> 
+    </div>
+
+    <!-- Forms Section -->
+    <div class="form-row">
+        <!-- Sign-up Form -->
+        <div class="form-container"> <!-- ketu eshte ku mund te krijoni llogarin tuaj-->
+            <h2>Sign-up</h2>
+            <form action="sign-up.php" method="POST">
+                <div class="form-group">
+                    <label for="signup-username">Username</label>
+                    <input type="text" name="username" id="signup-username" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" name="password" id="signup-password" required class="form-control">
+                </div>
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
         </div>
-    </div>
 
-    <!-- Sign-up Form -->
-    <div class="form-container">
-        <h2>Sign-up</h2>
-        <form action="sign-up.php" method="POST">
-            <div class="form-group">
-                <label for="signup-username">Username</label>
-                <input type="text" name="username" id="signup-username" required class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="signup-password">Password</label>
-                <input type="password" name="password" id="signup-password" required class="form-control">
-            </div>
-            <button type="submit" class="btn">Sign Up</button>
-        </form>
-    </div>
-
-    
-    <div class="form-container">
-        <h2>Sign-in</h2>
-        <form action="sign-in.php" method="POST">
-            <div class="form-group">
-                <label for="signin-username">Username</label>
-                <input type="text" name="username" id="signin-username" required class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="signin-password">Password</label>
-                <input type="password" name="password" id="signin-password" required class="form-control">
-            </div>
-            <button type="submit" class="btn">Sign In</button>
-        </form>
+        <!-- Sign-in Form -->    <!--ketu eshte ku ju mund te qaseni ne llogarin tuaj -->
+        <div class="form-container">
+            <h2>Sign-in</h2>
+            <form action="sign-in.php" method="POST">  <!-- metoda e PHP-->
+                <div class="form-group">
+                    <label for="signin-username">Username</label>
+                    <input type="text" name="username" id="signin-username" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="signin-password">Password</label>
+                    <input type="password" name="password" id="signin-password" required class="form-control">
+                </div>
+                <button type="submit" class="btn">Sign In</button>
+            </form>
+        </div>
     </div>
 
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="slick/slick.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/templatemo-script.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/all.js"></script>
 </body>
 </html>
