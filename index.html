@@ -4,233 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <title>Rent a car KOHA</title>
-    
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet"/> 
-    <link href="css/all.css" rel="stylesheet"/> 
-    <link href="slick/slick.css" rel="stylesheet"/>
-    <link href="slick/slick-theme.css" rel="stylesheet"/>
-	<link href="css/bootstrap.css" rel="stylesheet"/> 
-	<link href="css/Style.css" rel="stylesheet"/>
-
-
+    <title>Rent a Car KOHA</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/Style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .modal-header {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
- 
-    <div class="container-fluid">
-        <div class="tm-site-header">
-            <div class="row">
-                <div class="col-12 tm-site-header-col">
-                    <div class="tm-site-header-left">
-                        <i class="far fa-2x fa-eye tm-site-icon"></i>
-                        <h1 class="tm-site-name">Rent a Car KOHA</h1>
-                    </div>
-                    <div class="tm-site-header-right tm-menu-container-outer">
-                        
-                      
-                        <nav class="navbar navbar-expand-lg">
-                        
-                          
-                          <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
-                            aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
-                                class="fas fa-bars fa-1x"></i></span></button>
-                        
-                          
-                          <div class="collapse navbar-collapse tm-nav" id="navbarSupportedContent1">
-                        
-                          
-                            <ul class="navbar-nav mr-auto">
-                              <li class="nav-item active">
-                                <a class="nav-link tm-nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link tm-nav-link" href="company.html">Our Company</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link tm-nav-link" href="services.html">Services</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link tm-nav-link" href="contact.html">Contact</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link tm-nav-link" href="Sign-up.html">Register</a>
-                              </li>
-                            </ul>
-                          
-                        
-                          </div>
-                          
-                        
-                        </nav>
-                     
-                    </div>
-                </div>
-            </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Rent a Car KOHA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="company.html">Our Company</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
         </div>
-        
-        <div class="row">
-            <div class="col-12">
-                <div class="#"><img src="img2/rent.avif" width="100%"></div>        
-            </div>
-        </div>
-        
-       
-        <main>
-            
-            <section class="tm-welcome">
-                <div class="row">
-                    <div class="col-12">
-                        <h2 class="tm-section-header tm-header-floating">Miresvini ne Rent a Car Koha</h2>         
-                    </div>
-                </div>
-                
-                <div class="row tm-welcome-row">
+    </nav>
 
-                    <article class="col-lg-6 tm-media">
-                        <img src="img2/tesla.jpg" alt="Welcome image" class="img-fluid tm-media-img" />
-                        <div class="tm-media-body">
-                            <a href="#" class="tm-article-link"><h3 class="tm-article-title text-uppercase">Makina Elektrike</h3></a>
-                            <p>Tesla, dhe llojet tjer te makinave elektrike</p>
-                        </div>
-                    </article>
-
-                    <article class="col-lg-6 tm-media">
-                        <img src="img2/mkainat-qeharxhojne_pak karburant.webp" alt="Welcome image" class="img-fluid tm-media-img" />
-                        <div class="tm-media-body">
-                            <a href="#" class="tm-article-link"><h3 class="tm-article-title text-uppercase">Makina te Thjeshta </h3></a>
-                            <p>Ketu jane disa makina te thjeshta te cilat harxhojne me pak karburant, Skoda, Renault, Mercedes,Peugeot</p>
-                        </div>
-                    </article>
-
-                    <article class="col-lg-6 tm-media">
-                        <img src="img2/makinat e shtrejta.avif" alt="Welcome image" class="img-fluid tm-media-img" />
-                        <div class="tm-media-body">
-                            <a href="#" class="tm-article-link"><h3 class="tm-article-title text-uppercase">Makina Sportive</h3></a>
-                            <p>Ketu kemi makina te shtrejta dhe sportive siq jane</p>
-                        </div>
-                    </article>
-
-                    <article class="col-lg-6 tm-media">
-                        <img src="img2/fmaily-cars.webp" alt="Welcome image" class="img-fluid tm-media-img" />
-                        <div class="tm-media-body">
-                            <a href="#" class="tm-article-link"><h3 class="tm-article-title text-uppercase">Makina Familjare</h3></a>
-                            <p>Per nga maiknat familjare ne ju ofrojme Mercedes, Audi, Bmw </p>
-                        </div>
-                    </article>
-
-                </div>
-                
-                <div class="row tm-welcome-row-2">
-                    <div class="col-lg-4 tm-dotted-box-container">
-                        <article class="tm-dotted-box">
-                            <i class='fas fa-grin' style='font-size:42px; color:pink'></i>
-                            <h3 class="tm-article-title"></h3>
-                            <h5 style="text-align: center;">Phone</h5>
-                            <br>
-                            <p class="tm-article-text">Ju mndesni qe te beni rezervime online per makine 044-255-255</p>
-                        </article>    
-                    </div>
-                    <div class="col-lg-4 tm-dotted-box-container">
-                        <article class="tm-dotted-box">
-                            <i class='fas fa-grin' style='font-size:42px; color:pink'></i>
-                            <h3 class="tm-article-title"></h3>
-                            <h5 style="text-align: center;">WhatsApp</h5> 
-                            <br>
-                            <p class="tm-article-text">Ju mundeni edhe pa telefonuar qe tna kontaktoheni ne whatsaap dhe viber</p>
-                        </article>    
-                    </div>
-                    <div class="col-lg-4 tm-dotted-box-container">
-                        <article class="tm-dotted-box">
-                            <i class='fas fa-grin' style='font-size:42px; color:pink'></i>
-                            <br>
-                            <h3 style="text-align: center; font-size: 23px;" >WebPage</h3>
-                            <br>
-                            <p class="tm-article-text">Ju mundeni qe te rezervoni edhe ne faqen tone te webit</p>
-                            <a class="tm-btn tm-article-link" href="contact.html">Kontakt Webpage</a>
-                        </article>
-                    </div>
-                </div>
-            </section>
-            
-            
-            <section class="tm-featured">
-                <div class="row">
-                    <div class="col-12">
-                        <h2 class="tm-section-header tm-section-header-small">Makinat Kryesore</h2>        
-                    </div>
-                </div>
-                
-             
-                <div class="grid tm-carousel">
-                    <figure class="effect-honey">
-                        <img src="img2/mercedes/E-Class.jpeg" height="180px" alt="Featured Item">
-                        <figcaption>
-                            <h4><i><span>Makine</span> </i></h4>
-                        </figcaption>
-                    </figure>
-                    <figure class="effect-honey">
-                        <img src="img2/mercedes/GLE.webp" height="180px" alt="Featured Item">
-                        <figcaption>
-                            <h4><i><span>Makine</span> </i></h4>
-                        </figcaption>
-                    </figure>
-                    <figure class="effect-honey">
-                        <img src="img2/bmw/x5.avif" height="180px" alt="Featured Item">
-                        <figcaption>
-                            <h4><i><span>Makine</span> </i></h4>
-                        </figcaption>
-                    </figure>
-                    <figure class="effect-honey">
-                        <img src="img2/bmw/bmw5.jpeg" alt="Featured Item">
-                        <figcaption>
-                            <h4><i><span>Makine</span> </i></h4>
-                        </figcaption>
-                    </figure>
-
-                    <figure class="effect-honey">
-                        <img src="img2/audi/a6.avif" alt="Featured Item">
-                        <figcaption>
-                            <h4><i><span>Makine</span> </i></h4>
-                        </figcaption>
-                    </figure>
-
-                    <figure class="effect-honey">
-                        <img src="img2/audi/Q7.webp" height="180px" alt="Featured Item">
-                        <figcaption>
-                            <h4><i><span>Makine</span> </i></h4>
-                        </figcaption>
-                    </figure>
-
-                    <figure class="effect-honey">
-                        <img src="img2/mercedes/G-Class 3.jpg" height="180px" alt="Featured Item">
-                        <figcaption>
-                            <h4><i><span>Makine</span> </i></h4>
-                        </figcaption>
-                    </figure>
-
-                    <figure class="effect-honey">
-                        <img src="img2/mercedes/S-Class.avif" height="180px" alt="Featured Item">
-                        <figcaption>
-                            <h4><i><span>Makine</span> </i></h4>
-                        </figcaption>
-                    </figure>
-
-                </div>
-            </section>
-            
-            <footer>
-               
-              <strong> Idriz Beqiraj</strong>
-                
-                
-            </footer>
-            
-        </main>
+    <!-- Content -->
+    <div class="container mt-5">
+        <h1>Welcome to Rent a Car KOHA</h1>
+        <p>Your best solution for renting a car.</p>
     </div>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="slick/slick.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/all.js"></script>
+
+    <!-- Login/Sign-up Modal -->
+    <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="authModalLabel">Register or Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Tabs for Login and Sign-Up -->
+                    <ul class="nav nav-tabs" id="authTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">Login</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab" aria-controls="register" aria-selected="false">Register</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content mt-3">
+                        <!-- Login Form -->
+                        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                            <form action="sign-in.php" method="POST">
+                                <div class="mb-3">
+                                    <label for="login-username" class="form-label">Username</label>
+                                    <input type="text" name="username" id="login-username" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="login-password" class="form-label">Password</label>
+                                    <input type="password" name="password" id="login-password" class="form-control" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Login</button>
+                            </form>
+                        </div>
+                        <!-- Register Form -->
+                        <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                            <form action="sign-up.php" method="POST">
+                                <div class="mb-3">
+                                    <label for="register-username" class="form-label">Username</label>
+                                    <input type="text" name="username" id="register-username" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="register-password" class="form-label">Password</label>
+                                    <input type="password" name="password" id="register-password" class="form-control" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Register</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script to Show Modal on Page Load -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var myModal = new bootstrap.Modal(document.getElementById('authModal'), {
+                keyboard: false,
+                backdrop: 'static' // Prevent closing by clicking outside
+            });
+            myModal.show();
+        });
+    </script>
 </body>
 </html>

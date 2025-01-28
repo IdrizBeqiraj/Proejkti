@@ -2,26 +2,28 @@
 include 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $username = trim($_POST['username']);
+    $password = password_hash(trim($_POST['password']), PASSWORD_BCRYPT);
 
-    $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $username, $password);
+    // Check if the username already exists
+    $checkUserQuery = "SELECT id FROM users WHERE username = :username";
+    $stmt = $conn->prepare($checkUserQuery);
+    $stmt->bindParam(':username', $username);
+    $stmt->execute();
 
-    if ($stmt->execute()) {
-        echo "Sign-up successful!";
+    if ($stmt->rowCount() > 0) {
+        echo "Username already exists. Please choose a different one.";
     } else {
-        if ($conn->errno === 1062) {
-            echo "<br>";
-            echo "  Username already exists.";
+        $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $password);
+
+        if ($stmt->execute()) {
+            echo "Sign-up successful!";
         } else {
-            echo "<br>";
-            echo "Error: " . $conn->error;
+            echo "Error: " . $stmt->errorInfo()[2]; // PDO error info
         }
     }
-
-    $stmt->close();
-    $conn->close();
 }
 ?>

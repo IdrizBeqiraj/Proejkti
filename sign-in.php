@@ -2,31 +2,39 @@
 include 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
 
-    $sql = "SELECT * FROM users WHERE username = ?";
+    
+    $sql = "SELECT * FROM users WHERE username = :username";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $username);
+    $stmt->bindParam(':username', $username);
     $stmt->execute();
-    $result = $stmt->get_result();
 
-    if ($result->num_rows === 1) {
-        $user = $result->fetch_assoc();
+    
+    if ($stmt->rowCount() === 1) {
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        
         if (password_verify($password, $user['password'])) {
             session_start();
+            session_regenerate_id(true);  
             $_SESSION['user'] = $user['username'];
-            echo"<br>";
-            echo "Login successful! Welcome, " . $_SESSION['user'];
+
+            
+            header("Location: index.html");
+            exit;
         } else {
-            echo "<br>";
-            echo "Invalid password.";
+            
+            echo "<script>alert('Invalid password. Please try again.'); window.location.href = 'sign-up.html';</script>";
         }
     } else {
-        echo "User not found.";
+        
+        echo "<script>alert('User not found. Please register first.'); window.location.href = 'sign-up.html';</script>";
     }
 
-    $stmt->close();
-    $conn->close();
+    
+    $conn = null;
 }
 ?>
