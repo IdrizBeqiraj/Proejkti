@@ -1,3 +1,12 @@
+<?php
+session_start();
+$username = isset($_SESSION['user']) ? $_SESSION['user'] : null;
+
+if (!$username) {
+    header("Location: sign-in.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,52 +28,41 @@
 <body>
     
     <div class="container-fluid">
-        <div class="tm-site-header">
+    <div class="tm-site-header">
             <div class="row">
                 <div class="col-12 tm-site-header-col">
                     <div class="tm-site-header-left">
                         <i class="far fa-2x fa-eye tm-site-icon"></i>
                         <h1 class="tm-site-name">RENT A CAR KOHA</h1>
+                        <!-- Welcome Message & Logout Button -->
+                        <?php if ($username): ?>
+                            <span class="navbar-text mr-3">Welcome, <strong><?php echo htmlspecialchars($username); ?></strong>!</span>
+                            <a href="log-out.php" class="btn btn-danger">Logout</a>
+                        <?php endif; ?>
                     </div>
                     <div class="tm-site-header-right tm-menu-container-outer">
-                        
-                        
                         <nav class="navbar navbar-expand-lg">
-                        
-                          
-                          <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
-                            aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
-                                class="fas fa-bars fa-1x"></i></span></button>
-                        
-                          
-                          <div class="collapse navbar-collapse tm-nav" id="navbarSupportedContent1">
-                        
-                            
-                            <ul class="navbar-nav mr-auto">
-                              <li class="nav-item">
-                                <a class="nav-link tm-nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link tm-nav-link" href="company.html">Our Company</a>
-                              </li>
-                              <li class="nav-item active">
-                                <a class="nav-link tm-nav-link" href="#">Services</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link tm-nav-link" href="contact.html">Contact</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link tm-nav-link" href="Sign-up.html">Register</a>
-                              </li>
-                              
-                            </ul>
-                            
-                        
-                          </div>
-                          
-                        
+                            <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+                            aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span>
+                            </button>
+                            <div class="collapse navbar-collapse tm-nav" id="navbarSupportedContent1">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link tm-nav-link" href="index.php">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link tm-nav-link" href="company.php">Company</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link tm-nav-link" href="services.php">Services</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link tm-nav-link" href="contact.php">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </nav>
-                        
                     </div>
                 </div>
             </div>
