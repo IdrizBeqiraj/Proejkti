@@ -1,11 +1,11 @@
 <?php
-session_start();
-require 'car_rental_db.php';
-
+require 'db.php';
+session_start(); // Start the session
 if (!isset($_SESSION['user_id'])) {
-    header("Location: sign-in.php");
-    exit;
+    header('Location: sign-in.php'); // Redirect if not logged in
+    exit();
 }
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $order_id = $_POST['order_id'];

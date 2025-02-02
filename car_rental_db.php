@@ -1,4 +1,9 @@
 <?php
+session_start(); // Start the session
+if (!isset($_SESSION['user_id'])) {
+    header('Location: sign-in.php'); // Redirect if not logged in
+    exit();
+}
 
 $servername = "localhost";
 $username = "root";

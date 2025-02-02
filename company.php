@@ -1,13 +1,15 @@
 <?php
 session_start();
-$username = isset($_SESSION['user']) ? $_SESSION['user'] : null;
-
-if (!$username) {
-    // If the user is not logged in, redirect to the login page
+if (!isset($_SESSION['user_id'])) {
     header("Location: sign-in.php");
-    exit;
+    exit();
 }
+
+$user_email = $_SESSION['user_id'];  // Get the email stored in the session
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,8 +35,8 @@ if (!$username) {
                         <i class="far fa-2x fa-eye tm-site-icon"></i>
                         <h1 class="tm-site-name">Rent a Car KOHA</h1>
                         <!-- Welcome Message & Logout Button -->
-                        <?php if ($username): ?>
-                            <span class="navbar-text mr-3">Welcome, <strong><?php echo htmlspecialchars($username); ?></strong>!</span>
+                        <?php if (isset($_SESSION['user_id'])): ?>
+                            <span class="navbar-text mr-3">Welcome, <strong><?php echo htmlspecialchars($user_email); ?></strong>!</span>
                             <a href="log-out.php" class="btn btn-danger">Logout</a>
                         <?php endif; ?>
                     </div>

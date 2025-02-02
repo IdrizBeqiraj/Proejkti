@@ -1,13 +1,13 @@
 <?php
-session_start();
-$username = isset($_SESSION['user']) ? $_SESSION['user'] : null;
-
-if (!$username) {
-    // If the user is not logged in, display the login form
-    header("Location: sign-in.php");
-    exit;
+session_start(); // Start session
+if (!isset($_SESSION['user'])) {
+    header("Location: sign-in.php"); // Redirect to sign-in if not logged in
+    exit();
 }
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,9 +30,9 @@ if (!$username) {
                     <div class="tm-site-header-left">
                         <i class="far fa-2x fa-eye tm-site-icon"></i>
                         <h1 class="tm-site-name">Rent a Car KOHA</h1>
-                        <?php if ($username): ?>
-                            <p>Welcome, <strong><?php echo htmlspecialchars($username); ?></strong>!</p>
-                            <a href="log-out.php" class="btn btn-danger">Logout</a>
+                        <?php if (isset($_SESSION['user'])): ?>
+                            <p>Welcome, <strong><?php echo htmlspecialchars($user_email); ?></strong>!</p>
+                            <a href="Log-out.php" class="btn btn-danger">Logout</a>
                         <?php else: ?>
                             <p><a href="sign-in.php">Login</a> or <a href="sign-up.php">Register</a></p>
                         <?php endif; ?>
@@ -80,33 +80,7 @@ if (!$username) {
                 </div>  <!--  fillimi-->
                 <div class="row tm-welcome-row">
                 <div class="row tm-welcome-row">
-    <?php
-    $cars = [
-        ["name" => "Tesla Model 3", "image" => "img2/tesla.jpg", "price" => 100],
-        ["name" => "Skoda Octavia", "image" => "img2/mkainat-qeharxhojne_pak karburant.webp", "price" => 50],
-        ["name" => "Lamborghini Huracan", "image" => "img2/makinat e shtrejta.avif", "price" => 300],
-        ["name" => "BMW X5", "image" => "img2/fmaily-cars.webp", "price" => 150],
-    ];
-
-    foreach ($cars as $car) {
-        ?>
-        <article class="col-lg-6 tm-media">
-            <img src="<?php echo $car['image']; ?>" alt="Car Image" class="img-fluid tm-media-img" />
-            <div class="tm-media-body">
-                <h3 class="tm-article-title text-uppercase"><?php echo $car['name']; ?></h3>
-                <p>Price per day: $<?php echo $car['price']; ?></p>
-                <form action="order.php" method="POST">
-                    <input type="hidden" name="car_name" value="<?php echo $car['name']; ?>">
-                    <input type="hidden" name="price" value="<?php echo $car['price']; ?>">
-                    <label for="days">Days:</label>
-                    <input type="number" name="rental_days" min="1" required>
-                    <button type="submit" class="btn btn-success">Order</button>
-                </form>
-            </div>
-        </article>
-        <?php
-    }
-    ?>
+   
 </div>
 
                     <article class="col-lg-6 tm-media">

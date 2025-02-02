@@ -1,11 +1,14 @@
 <?php
-session_start();
-$username = isset($_SESSION['user']) ? $_SESSION['user'] : null;
+session_start(); 
 
-if (!$username) {
-    header("Location: sign-in.php");
-    exit;
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: sign-in.php'); 
+    exit();
 }
+
+$username = $_SESSION['user_id'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +36,7 @@ if (!$username) {
                         <!-- Welcome Message & Logout Button -->
                         <?php if ($username): ?>
                             <span class="navbar-text mr-3">Welcome, <strong><?php echo htmlspecialchars($username); ?></strong>!</span>
-                            <a href="log-out.php" class="btn btn-danger">Logout</a>
+                            <a href="Log-out.php" class="btn btn-danger">Logout</a>
                         <?php endif; ?>
                     </div>
                     <div class="tm-site-header-right tm-menu-container-outer">

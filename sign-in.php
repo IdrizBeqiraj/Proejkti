@@ -1,22 +1,25 @@
 <?php
-include 'db.php';
 session_start();
+include 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
-    $query = "SELECT * FROM users WHERE username = :username";
+    // Check if user exists
+    $query = "SELECT * FROM users WHERE email = :email";
     $stmt = $conn->prepare($query);
-    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':email', $email);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user'] = $username;
-        echo "<script>alert('Login successful!'); window.location.href = 'index.php';</script>";
+        // Set session variable for user
+        $_SESSION['user_id'] = $user['id']; // Store user_id in session (use user ID instead of email)
+        header("Location: index.php");  // Redirect to index.php after login
+        exit();
     } else {
-        echo "<script>alert('Invalid username or password.'); window.location.href = 'sign-in.php';</script>";
+        echo "<script>alert('Invalid email or password');</script>";
     }
 }
 ?>
@@ -25,74 +28,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content=a"width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
     <link href="css/bootstrap.css" rel="stylesheet"/>
     <link href="css/Style.css" rel="stylesheet"/>
-    <style>
-       body {
-    background: #ffffff; /* White background */
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.card {
-    width: 400px;
-    padding: 25px;
-    border-radius: 20px; /* More rounded corners */
-    border: 2px solid #000; /* Black border */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    background: #fff;
-    position: relative;
-    top: -50px; /* Moves form higher */
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 2px solid #000;
-    border-radius: 10px;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    background: #007bff;
-    color: white;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #0056b3;
-}
-        .btn-primary {
-            background: #007bff;
-            border: none;
-        }
-        .btn-primary:hover {
-            background: #0056b3;
-        }
-    </style>
 </head>
 <body>
-    <div class="card">
-        <h2 class="text-center mb-3">Login</h2>
+    <div class="container">
+        <h2 class="text-center">Sign In</h2>
         <form action="sign-in.php" method="POST">
             <div class="form-group">
-                <label>Username:</label>
-                <input type="text" name="username" class="form-control" required>
+                <label>Email:</label>
+                <input type="email" name="email" class="form-control" required>
             </div>
             <div class="form-group">
                 <label>Password:</label>
                 <input type="password" name="password" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
             <p class="mt-3 text-center">Don't have an account? <a href="sign-up.php">Sign up here</a></p>
         </form>
     </div>
