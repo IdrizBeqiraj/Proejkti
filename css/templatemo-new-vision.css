@@ -382,7 +382,8 @@ footer a:hover {
     text-decoration: none;
 }
 
-
+/* Hover Effect */
+/* Common style */
 .grid figure {
   position: relative;
   float: left;
@@ -432,7 +433,8 @@ footer a:hover {
   height: 100%;
 }
 
-
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
 .grid figure figcaption > a {
   z-index: 1000;
   text-indent: 200%;
@@ -458,7 +460,9 @@ footer a:hover {
   font-size: 68.5%;
 }
 
-
+/*---------------*/
+/***** Honey *****/
+/*---------------*/
 
 figure.effect-honey {
   background: #4a3753;
@@ -532,7 +536,7 @@ figure.effect-honey:hover h4 i {
 @media (max-width: 600px) {
     .tm-about-icon {
         padding-bottom: 50px;
-        margin-left: auto; 
+        margin-left: auto;
         margin-right: auto;
         min-width: 160px;
     }
